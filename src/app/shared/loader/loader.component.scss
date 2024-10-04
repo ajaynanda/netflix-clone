@@ -1,0 +1,42 @@
+// @import '../../../../assets/scss/helpers/variables';
+// @import '../../../../assets/scss/helpers/mixins';
+.loaderclass{
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999999999;
+    &:before{
+        background-color: rgba(#ffff,0.35);
+        content: '';
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    span{
+        animation: rotate 1.5s ease infinite;
+        -webkit-animation: rotate 1.5s ease infinite;
+        border: 5px solid #ccc;
+        border-left-color: #007bff;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        display: block;
+        left: 50%;
+        position: fixed;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        z-index: 999999999;
+}
+}
+@keyframes rotate{
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+       transform: rotate(360deg);
+    }
+}

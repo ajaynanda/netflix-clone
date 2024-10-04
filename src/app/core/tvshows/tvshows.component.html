@@ -1,0 +1,10 @@
+<!-- <app-banner *ngIf="bannerDetails$ && bannerVideo$"  [bannerDetail]="bannerDetails$" [bannerVideo]="bannerVideo$"></app-banner> -->
+<!-- <app-tv-shows-list></app-tv-shows-list> -->
+<app-loader *ngIf="loaderState"></app-loader>
+<app-banner *ngIf="bannerDetails$ && bannerVideo$"  [bannerDetail]="bannerDetails$" [bannerVideo]="bannerVideo$"></app-banner>
+<app-movie-list *ngIf="airingToday.length>0" [movies]="airingToday" [title]="'Airing Today'"></app-movie-list>
+<app-movie-list *ngIf="onAir.length>0" [movies]="onAir" [title]="'Trending'"></app-movie-list>
+<app-movie-list *ngIf="popular.length>0" [movies]="popular" [title]="'Popular Series'"></app-movie-list>
+<app-movie-list *ngIf="topRated.length>0" [movies]="topRated" [title]="'Top Rated Series'"></app-movie-list>
+<app-movie-list *ngIf="trending.length>0" [movies]="trending" [title]="'Trending Series'"></app-movie-list>
+

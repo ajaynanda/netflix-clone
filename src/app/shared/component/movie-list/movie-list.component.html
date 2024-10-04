@@ -1,0 +1,24 @@
+<!-- <div class="container mx-auto px-4 md:px-20 mt-14 mb-20"> -->
+    <div class="container ml-5">
+<p class="font-semibold text-2xl my-3 ml-3">{{title()}}</p>
+<div #swiperContainer class="swiper-container relative">
+    <div class="swiper-wrapper flex">
+  @for(movie of movies();track movie){
+            <div (click)="detailPage(movie)" class="swiper-slide relative group" (mouseenter)="setHoverMovie(movie)" (mouseleave)="clearHoverMovie()" >
+                <img [src]="movie.poster_path | image" alt="">
+                <!-- <div @fade *ngIf="selectedContent==movie.title || selectedContent==movie.original_title" class="desc p-2 absolute "> -->
+                    <div @fade *ngIf="movie.title || movie.original_title?selectedContent==movie.title || selectedContent==movie.original_title:selectedContent==movie.original_name" class="desc p-2 absolute ">
+                    <span class="text-base flex flex-wrap font-bold">{{movie.title?movie.title :movie.original_name}}</span>
+                    <p class="text-xs my-3">{{movie.overview | description:200}}</p>
+                   <div class="py-3 w-full absolute bottom-1">
+                    <p class="text-xs flex justify-between items-center">
+                        <span class="text-green-500">Vote Average :{{movie.vote_average}}</span>
+                        <i class="fa fa-2x fa-chevron-circle-down" aria-hidden="true"></i>
+                    </p>
+                   </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<header class="bg-main sticky top-0 bg-black bg-opacity-90 h-fit flex ">
+   <a [routerLink]="'/home'"><img src="/public/pngwing.com.png" alt="" class="w-24 mx-5"></a>
+   <button  (click)="toggleMenu()" class="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+      <svg class="w-6 h-6 text-neutral-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+   <div [ngClass]="{  'hidden': !isMenuOpen, 
+   'block': isMenuOpen, 
+   'md:flex': true} " class="flex-col md:flex-row items-center gap-4 md:gap-5 ml-auto mr-11">
+   <div class=" flex  gap-5">
+     
+      <ul  class="flex flex-col md:flex-row items-center gap-4">
+         @for(menu of menu;track menu){
+            <li [ngClass]="{'text-red-500': router.url.includes(menu.routeTo)}" class="flex items-center cursor-pointer  mx-4 text-neutral-200  text-sm hover:text-gray-500 transition-[1s]"><a [routerLink]="menu.routeTo">{{menu.name}}</a></li>
+         }
+      </ul>
+   </div> 
+   <div class="flex flex-col md:flex-row items-center ml-8">
+      <p [ngClass]="{'hidden': isMenuOpen}" class="text-neutral-100 cursor-default">{{user().name}}</p>
+      <img [src]="user().picture" alt="user" class="w-8 cursor-pointer rounded-full items-center bg-white p-1 mx-1 hover:text-gray-700">   
+   </div>
+   <a (click)="signout()" class="mx-2 text-neutral-50 cursor-pointer">Sign out</a>
+</div>
+</header>
